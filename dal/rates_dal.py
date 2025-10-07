@@ -12,5 +12,5 @@ class RateDao(RateABC):
         rates = self.fetched_currency["rates"]
         rate = rates.get(currency)
         if rate is None:
-            raise Exception("Invalid currency: {currency}")
+            raise Exception(f"[Error] Invalid currency: {currency}")
         return float(rate)

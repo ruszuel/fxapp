@@ -7,13 +7,13 @@ class InputController:
 
     def get_menu_choice(self, valid_choices: list[int]):
         while True:
-            value = input("Option: ").strip()
-            if not value.isdigit():
-                print("Error")
+            val = input("Option: ").strip()
+            if not val.isdigit():
+                print("[Error] Invalid input. Enter a number.")
                 continue
-            choice = int(value)
+            choice = int(val)
             if choice not in valid_choices:
-                print("Error")
+                print(f"[Warn] Invalid option. Choose from {valid_choices}.")
                 continue
             return choice
 
@@ -21,7 +21,7 @@ class InputController:
         while True:
             val = input(f"{label}: ").strip().upper()
             if val not in self.valid_currencies:
-                print("Error")
+                print(f"[Error] Invalid currency '{val}'. [Info] Valid: {', '.join(self.valid_currencies)}.")
                 continue
             return val
 
@@ -31,14 +31,14 @@ class InputController:
             try:
                 num = float(val)
             except ValueError:
-                print("Error")
+                print("[Error] Invalid amount. Enter a valid number.")
                 continue
 
-            if str(val).startswith("-") and float(val) == 0:
-                print("Error")
+            if val.startswith("-0"):
+                print("[Error] Negative zero (-0) is not allowed.")
                 continue
             if num < 0:
-                print("Error")
+                print("[Error] Amount cannot be negative.")
                 continue
 
             return round(num, 2)

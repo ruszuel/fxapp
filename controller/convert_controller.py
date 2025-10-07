@@ -6,3 +6,4 @@ class ConvertMoney:
 
     def convert(self, source: str, target: str, amount: float):
         return self.rates_bll.convert_amount(source, target, amount)
+    

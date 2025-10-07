@@ -22,5 +22,5 @@ class RatesBll:
         try:
             return float(amount) * rates[source] / rates[target]
         except Exception:
-            print("Error")
+            print("[Error] Conversion failed. [Info] Source or target currency not found in rate list.")
 

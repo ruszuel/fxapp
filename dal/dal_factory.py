@@ -8,5 +8,5 @@ class RatesFactory:
         }
         dao_class = obj_map.get(data_source)
         if dao_class is None:
-            raise Exception("Invalid Source")
+            raise Exception(f"[Error] Invalid data source.")
         return dao_class()

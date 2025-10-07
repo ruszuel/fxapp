@@ -19,6 +19,6 @@ class Router:
                 if choice in pages.keys():
                     pages[choice]()
                 else:
-                    print(f"Error")
+                    print(f"[Error] Invalid option. [Info] Please choose from {list(pages.keys())}.")
             except ValueError:
-                print("Error")
+                print("[Error] Invalid input. [Info] Please enter a number (e.g., 1 or 2).")
