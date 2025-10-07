@@ -1,8 +1,8 @@
 from controller.rates_controller import RatesController
 
 class PageRates:
-    def __init__(self):
-        self.rate_controller = RatesController("json")
+    def __init__(self, data_source: str):
+        self.rate_controller = RatesController(data_source)
 
     def display_rates(self):
         print("\n-------------- Fx Rates --------------")
@@ -10,7 +10,7 @@ class PageRates:
         print("---------------------------------------")
         
         rates_data = self.rate_controller.retrieve_rates()
-        for currency, rate in rates_data['rates'].items():
+        for currency, rate in rates_data["rates"].items():
             print(f"{currency}\t\tPHP\t\t{rate:.4f}")
         
         print("---------------------------------------")
